@@ -139,7 +139,7 @@ public class MySQLGateway {
 				
 				String filename = rs.getString("filename");
 				double v1 = rs.getDouble(measure1);
-				double v2 = rs.getDouble(measure2);
+				double v2 = Math.floor(rs.getDouble(measure2));
 				
 				Element currFetch = new Element(filename, v1, v2);
 				
@@ -167,7 +167,7 @@ public ArrayList<Element> fetchElements4(int family, String algorithm, String ty
 
 		query += " order by filename asc;";
 		
-		System.out.println(query);
+		//System.out.println(query);
 
 		
 		//System.out.println(query);

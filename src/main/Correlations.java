@@ -11,13 +11,21 @@ public class Correlations {
 
 	public static void main(String[] args) throws Exception {
 		
+		String idTest = "2";
+		final boolean graphFixed = false;
+		final boolean algorithmFixed = true;
 		
+		//ID Experiment (2 or 100), Type
 
-		//planarCorrelation("2",false);
-		//randomCorrelation("2",false);
-		//baCorrelation("2",false);
-		treeCorrelation("2",false);
-		//kTreeCorrelation("1", false);
+		//planarCorrelation(idTest,graphFixed);
+		//randomCorrelation(idTest,graphFixed);
+		//baCorrelation(idTest,graphFixed);
+		//treeCorrelation(idTest,graphFixed);
+		//kTreeCorrelation(idTest, graphFixed);
+		
+		caterpillarCorrelation(idTest, graphFixed);
+		cyclesCorrelation(idTest, graphFixed);
+		pathsCorrelation(idTest, graphFixed);
 		
 		//String filename = args[0];
 		
@@ -42,6 +50,78 @@ public class Correlations {
 
 		System.out.println(filename + " corrlation: " + corr);	
 		
+	}
+	
+	static void caterpillarCorrelation(String idExperiment, boolean fixAlgorithm) throws Exception{
+
+		int familyId = 6; // caterpillar;
+		String[] type_1_Arr = {"50", "100", "150", "200"};
+		String[] type_2_Arr = {""};
+		String[] meas_arr = {"ply", "full_stress", "crossings", "unif_e_len"};
+		String[] instances = {"1"};
+		String[] algorithms = {"1", "2", "3", "4", "6"};
+
+
+		QueryInstance qi = new QueryInstance();
+		qi.name = "Caterpillar";
+		qi.familyId = familyId;
+		qi.type_1_Arr = type_1_Arr;
+		qi.type_2_Arr = type_2_Arr;
+		qi.meas_arr = meas_arr;
+		qi.instances = instances;
+		qi.algorithms = algorithms;
+		qi.experiment = idExperiment;
+
+		printCorrelations(qi, fixAlgorithm);
+
+	}
+	
+	static void cyclesCorrelation(String idExperiment, boolean fixAlgorithm) throws Exception{
+
+		int familyId = 7; // caterpillar;
+		String[] type_1_Arr = {"50", "100", "150", "200"};
+		String[] type_2_Arr = {""};
+		String[] meas_arr = {"ply", "full_stress", "crossings", "unif_e_len"};
+		String[] instances = {"1"};
+		String[] algorithms = {"1", "2", "3", "4", "6"};
+
+
+		QueryInstance qi = new QueryInstance();
+		qi.name = "Cycles";
+		qi.familyId = familyId;
+		qi.type_1_Arr = type_1_Arr;
+		qi.type_2_Arr = type_2_Arr;
+		qi.meas_arr = meas_arr;
+		qi.instances = instances;
+		qi.algorithms = algorithms;
+		qi.experiment = idExperiment;
+
+		printCorrelations(qi, fixAlgorithm);
+
+	}
+	
+	static void pathsCorrelation(String idExperiment, boolean fixAlgorithm) throws Exception{
+
+		int familyId = 8; // paths;
+		String[] type_1_Arr = {"50", "100", "150", "200"};
+		String[] type_2_Arr = {""};
+		String[] meas_arr = {"ply", "full_stress", "crossings", "unif_e_len"};
+		String[] instances = {"1"};
+		String[] algorithms = {"1", "2", "3", "4", "6"};
+
+
+		QueryInstance qi = new QueryInstance();
+		qi.name = "Paths";
+		qi.familyId = familyId;
+		qi.type_1_Arr = type_1_Arr;
+		qi.type_2_Arr = type_2_Arr;
+		qi.meas_arr = meas_arr;
+		qi.instances = instances;
+		qi.algorithms = algorithms;
+		qi.experiment = idExperiment;
+
+		printCorrelations(qi, fixAlgorithm);
+
 	}
 
 

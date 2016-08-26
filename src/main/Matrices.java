@@ -9,6 +9,35 @@ public class Matrices {
 		//baMatrix();
 		//treeMatrix();
 		//kTreeMatrix();
+		caterpillarMatrix("1");
+		
+	}
+	
+	public static void caterpillarMatrix(String idExperiment) throws Exception{
+
+
+		int familyId = 6; // Caterpillar
+
+		String[] type_1_Arr = {"50", "100", "150", "200"};
+		String[] type_2_Arr = {""};
+		String[] meas_arr = {"ply"};
+		String[] instances = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"};
+		//FMMM, FR, GEM, KK, SM 
+		String[] algorithms = {"1", "2", "3", "4", "6"};
+
+
+		QueryInstance qi = new QueryInstance();
+		qi.name = "Caterpillar";
+		qi.familyId = familyId;
+		qi.type_1_Arr = type_1_Arr;
+		qi.type_2_Arr = type_2_Arr;
+		qi.meas_arr = meas_arr;
+		qi.instances = instances;
+		qi.algorithms = algorithms;
+		qi.experiment = idExperiment;
+
+
+		printMatrix(qi);
 	}
 
 	public static void planarMatrix(String idExperiment) throws Exception{
